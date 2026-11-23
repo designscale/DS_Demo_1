@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# Portfolio design system
+
+A React component library built from the Figma file **01 – Step 1: Hand-made Figma to Code**.
+
+## How Figma maps to code
+
+| Figma | Code |
+| --- | --- |
+| Variable collections `color primitives`, `color` (light / dark), `space primitives`, `text primitives` (sm / md / lg) | `src/tokens/tokens.json` → `npm run tokens` → `src/tokens/tokens.css` (CSS custom properties) |
+| `color` modes light / dark | `data-theme="light" \| "dark"` (try the **Theme** toolbar button) |
+| Text styles (`font/display/md`, `font/headline/lg` …) | Utility classes `.ds-font-display-md`, `.ds-font-headline-lg` … |
+| `text primitives` modes lg (&gt;1280) / md (&gt;800) / sm (&lt;800) | Container queries: each component picks its type scale from the width it is rendered at |
+| Components with a `breakpoint` variant (desktop / tablet / mobile) | **One** responsive component each. See the *Breakpoints* story of every section |
+| Slots (`media`) and booleans (`hasBg`, `hadButton`) | Props (`media`, `hasBg`, `showButton`) |
+
+## Components
+
+- **Primitives:** Button, Logo, Menu
+- **Layout:** Navigation, Footer
+- **Sections:** Hero, ProjectCard, SkillItem, Skills, About
+- **Pages:** Portfolio (the Figma *Design* page, assembled from the components)
+
+## Use it
+
+```tsx
+import { Navigation, Hero, Button } from 'ds-demo-1';
+
+<Navigation />
+<Hero name="Kim" headline={'UX. UI.\nAgentic AI.'} />
+<Button variant="secondary">Contact</Button>
+```

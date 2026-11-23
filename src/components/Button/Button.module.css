@@ -1,0 +1,70 @@
+/* Figma strokes sit inside the frame, so a 3px border is reserved on both
+   variants and taken out of the padding to keep both at 56px tall. */
+.button {
+  --border-width: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--space-400) - var(--border-width)) calc(var(--space-500) - var(--border-width));
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* primary */
+.primary {
+  background: var(--color-action-primary-default);
+  border-color: var(--color-action-primary-default);
+  color: var(--color-action-primary-text);
+}
+.primary:hover,
+.primary[data-state='hover'] {
+  background: var(--color-action-primary-hover);
+  border-color: var(--color-action-primary-hover);
+}
+.primary:active,
+.primary[data-state='active'] {
+  background: var(--color-action-primary-pressed);
+  border-color: var(--color-action-primary-pressed);
+}
+
+/* secondary: outline style. Figma binds the border to action/primary/*. */
+.secondary {
+  background: transparent;
+  border-color: var(--color-action-primary-default);
+  color: var(--color-action-secondary-text);
+}
+.secondary:hover,
+.secondary[data-state='hover'] {
+  border-color: var(--color-action-primary-hover);
+}
+.secondary:active,
+.secondary[data-state='active'] {
+  border-color: var(--color-action-primary-pressed);
+}
+
+/* focused: 2px border/focus ring, 2px away from the button */
+.button:focus-visible,
+.button[data-state='focused'] {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* disabled (token exists in Figma, no component variant yet) */
+.button:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+}
+.primary:disabled {
+  background: var(--color-action-primary-disabled);
+  border-color: var(--color-action-primary-disabled);
+}
+.secondary:disabled {
+  border-color: var(--color-border-default);
+}

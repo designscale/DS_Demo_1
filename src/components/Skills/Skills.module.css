@@ -1,0 +1,37 @@
+.skills {
+  padding: var(--space-700) var(--space-500);
+  background: var(--color-surface-default);
+  color: var(--color-text-default);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-700);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.title {
+  margin: 0;
+}
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-700);
+}
+
+@container ds (min-width: 800px) {
+  .group {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .item {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+@container ds (min-width: 1280px) {
+  .skills {
+    padding: var(--space-700) var(--space-600);
+  }
+}

@@ -1,0 +1,24 @@
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+@import '../tokens/tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  background: var(--color-surface-default);
+  color: var(--color-text-default);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Shared by every DS component root: makes it a size container named `ds`. */
+.ds-root {
+  container: ds / inline-size;
+  width: 100%;
+}
